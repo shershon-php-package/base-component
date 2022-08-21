@@ -42,7 +42,7 @@
     ];
     $logger = new Logger();
     $logger->setConfig($config);
-    Log::setInstance($logger);
+    LogFacade::setInstance($logger);
     //日志不区分模块
     LogFacade::info('test', ['title' => 'this is test'])
     //日志区分模版便与搜索
@@ -83,7 +83,7 @@ class AppServiceProvider extends ServiceProvider
         if (class_exists("Wm\Logger\Log")) {
             $logger = new Logger();
             $logger->setConfig($config);
-            Log::setInstance($logger);
+            LogFacade::setInstance($logger);
         }
     }
 }
@@ -118,7 +118,7 @@ class AppService extends Service
         if (class_exists("Wm\Logger\Log")) {
             $logger = new Logger();
             $logger->setConfig($config);
-            Log::setInstance($logger);
+            LogFacade::setInstance($logger);
         }
     }
 }
