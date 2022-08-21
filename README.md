@@ -28,8 +28,7 @@
 
 ## 使用
 ### 1. 基本用法
-* 前期准备,设置常量
-  在框架入口添加和脚本入口添加请求id和开始时间
+* 前期准备,设置常量。在框架入口或脚本入口添加请求id和开始时间
    ```
    define('INDEX_START', microtime(true));//基于计算耗时
    define('REQUEST_ID', 'PHP_' . uniqid(gethostname() . '_'));//用于追踪请求链路
@@ -38,14 +37,14 @@
   $logger的的instance只需要初始化一次，一般放在ServiceProvider中初始化一次，后期只使用LogFacade门面类打印日志
 ``` php
     $config = [
-        'file' => '/logs/wm-course-class.log' //设置日志路径
+        'file' => '/logs/test.log' //设置日志路径
     ];
     $logger = new Logger();
     $logger->setConfig($config);
     LogFacade::setInstance($logger);
     //日志不区分模块
     LogFacade::info('test', ['title' => 'this is test'])
-    //日志区分模版便与搜索
+    //日志区分模块,便与搜索
     LogFacade::info('module:message', ['title' => 'this is test'])
 ```
 ### 2. lumen/laravel 框架接入
@@ -62,9 +61,9 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
-use Wm\Logger\Log;
-use Wm\Logger\LogFacade;
-use Wm\Logger\Logger;
+use Shershon\Base\Logger\LogFacade;
+use Shershon\Base\Logger\LogFacadeFacade;
+use Shershon\Base\Logger\LogFacadeger;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -77,10 +76,10 @@ class AppServiceProvider extends ServiceProvider
     {
         //配置日志服务
         $config = [
-            'file' => env('LOG_FILE', '/tmp/wm.log'), //设置日志路径
+            'file' => env('LOG_FILE', '/tmp/test.log'), //设置日志路径
             'level' => env('LOG_LEVEL', 'DEBUG'),
         ];
-        if (class_exists("Wm\Logger\Log")) {
+        if (class_exists("Shershon\Base\Logger\LogFacade")) {
             $logger = new Logger();
             $logger->setConfig($config);
             LogFacade::setInstance($logger);
@@ -88,7 +87,7 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 ```
-* 在需要打日志的地方使用 LogFacade日志门面类打印日志既可
+* 在需要打日志的地方使用 LogFacade日志门面类打印日志即可
  ``` 
     LogFacade::info('module:message', ['title' => 'this is test'])
  ```
@@ -113,9 +112,9 @@ class AppService extends Service
         // 服务启动
         //配置日志服务
         $config = [
-            'file' => env('log.path', '/logs').'/wm-course-class.log' //设置日志路径
+            'file' => env('log.path', '/logs').'/test.log' //设置日志路径
         ];
-        if (class_exists("Wm\Logger\Log")) {
+        if (class_exists("Shershon\Base\Logger\LogFacade")) {
             $logger = new Logger();
             $logger->setConfig($config);
             LogFacade::setInstance($logger);
@@ -123,7 +122,7 @@ class AppService extends Service
     }
 }
 ```
-* 在需要打日志的地方使用 LogFacade日志门面类打印日志既可
+* 在需要打日志的地方使用 LogFacade日志门面类打印日志即可
  ``` 
     LogFacade::info('module:message', ['title' => 'this is test'])
  ```
