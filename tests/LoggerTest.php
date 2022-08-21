@@ -20,14 +20,14 @@ class LoggertTest extends TestCase
         $logger->setConfig($config);
         LogFacade::setInstance($logger);
 
-        LogFacade::emergency('test', ['msg' => 'This is a emergency.']);
-        LogFacade::alert('test', ['msg' => 'This is a alert.']);
-        LogFacade::critical('test', ['msg' => 'This is a critical.']);
-        LogFacade::error('test', ['msg' => 'This is a error.']);
-        LogFacade::warning('test', ['msg' => 'This is a warning.']);
-        LogFacade::notice('test', ['msg' => 'This is a notice.']);
-        LogFacade::info('test', ['msg' => 'This is a info.']);
-        LogFacade::debug('test', ['msg' => 'This is a debug.']);
-        LogFacade::log('test', ['msg' => 'This is a log.']);
+        LogFacade::emergency('test:emergency', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::alert('test:alert', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::critical('test:critical', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::error('test:error', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::warning('test:warning', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::notice('test:notice', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::info('test:info', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::debug('test:debug', ['params' => ['name' => 'zs'], 'result' => []]);
+        LogFacade::log('test:log', ['params' => ['name' => 'zs'], 'result' => []]);
     }
 }

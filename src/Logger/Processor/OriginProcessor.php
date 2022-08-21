@@ -18,7 +18,7 @@ class OriginProcessor implements ProcessorInterface
         if (!empty($backTrace[$idx + 1]['function'])) {
             $record['extra']['func'] = $backTrace[$idx + 1]['function'];
         }
-        $record['extra']['file']         = isset($backTrace[$idx + 1]['file']) ? basename($backTrace[$idx + 1]['function']) : '';
+        $record['extra']['file']         = isset($backTrace[$idx + 1]['file']) ? basename($backTrace[$idx + 1]['file']) : '';
         $record['extra']['line']         = isset($backTrace[$idx + 1]['line']) ? basename($backTrace[$idx + 1]['line']) : '';
         $record['extra']['ip']           = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '';
         $record['extra']['request_url']  = $_SERVER['REQUEST_URI'] ?? '';
