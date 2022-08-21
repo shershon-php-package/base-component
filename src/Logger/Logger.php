@@ -199,7 +199,7 @@ class Logger
      */
     public function setConfig(array $config): self
     {
-        $this->config = $config;
+        $this->config = array_merge($this->config, $config);
         return $this;
     }
 

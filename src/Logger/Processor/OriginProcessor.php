@@ -6,7 +6,7 @@ use Monolog\Processor\ProcessorInterface;
 
 class OriginProcessor implements ProcessorInterface
 {
-    public function __invoke(array $records)
+    public function __invoke(array $record)
     {
         $backTrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
         $idx       = 0;
@@ -16,14 +16,14 @@ class OriginProcessor implements ProcessorInterface
             }
         }
         if (!empty($backTrace[$idx + 1]['function'])) {
-            $records['extra']['func'] = $backTrace[$idx + 1]['function'];
+            $record['extra']['func'] = $backTrace[$idx + 1]['function'];
         }
-        $records['extra']['file']         = isset($backTrace[$idx + 1]['file']) ? basename($backTrace[$idx + 1]['function']) : '';
-        $records['extra']['line']         = isset($backTrace[$idx + 1]['line']) ? basename($backTrace[$idx + 1]['line']) : '';
-        $records['extra']['ip']           = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '';
-        $records['extra']['request_url']  = $_SERVER['REQUEST_URI'] ?? '';
-        $records['extra']['http_referer'] = $_SERVER['HTTP_REFERER'] ?? '';
+        $record['extra']['file']         = isset($backTrace[$idx + 1]['file']) ? basename($backTrace[$idx + 1]['function']) : '';
+        $record['extra']['line']         = isset($backTrace[$idx + 1]['line']) ? basename($backTrace[$idx + 1]['line']) : '';
+        $record['extra']['ip']           = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '';
+        $record['extra']['request_url']  = $_SERVER['REQUEST_URI'] ?? '';
+        $record['extra']['http_referer'] = $_SERVER['HTTP_REFERER'] ?? '';
 
-        return $records;
+        return $record;
     }
 }

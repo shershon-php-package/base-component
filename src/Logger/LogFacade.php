@@ -31,7 +31,7 @@ class LogFacade
      * @param Logger $logger
      * @return void
      */
-    public function setInstance(Logger $logger): void
+    public static function setInstance(Logger $logger): void
     {
         self::$instance = $logger;
     }

@@ -29,5 +29,8 @@
     "psr-4": {
       "Shershon\\BaseTest\\": "tests"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
   }
 }
