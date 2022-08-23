@@ -1,10 +1,9 @@
 {
-  "name": "shershon-php-package/base-component",
-  "description": "常用的基础包",
+  "name": "shershon/base",
+  "description": "常用的基础组件",
   "keywords": [
-    "log",
-    "logging",
-    "psr-3"
+    "base component",
+    "psr"
   ],
   "homepage": "https://github.com/shershon-php-package/base-component.git",
   "type": "library",

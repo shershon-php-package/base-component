@@ -19,12 +19,12 @@
   ]
 }
 ```
-* composer  require --ignore-platform-reqs shershon-php-package/base-component
-* rm -rf vendor/shershon-php-package/base-component/.git
+* composer  require --ignore-platform-reqs shershon/base
+* rm -rf vendor/shershon/base/.git
 
 ## 更新包版本
-* composer  require --ignore-platform-reqs shershon-php-package/base-component:1.0.0(替换成指定的版本)
-* rm -rf vendor/shershon-php-package/base-component/.git
+* composer  require --ignore-platform-reqs shershon/base:1.0.0(替换成指定的版本)
+* rm -rf vendor/shershon/base/.git
 
 ## 使用
 ### 1. 基本用法
