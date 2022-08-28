@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Shershon\Base\Logger\LogFacade;
 use Shershon\Base\Logger\Logger;
 
-class LoggertTest extends TestCase
+class LoggerTest extends TestCase
 {
     public function testLogFacade()
     {
@@ -28,6 +28,5 @@ class LoggertTest extends TestCase
         LogFacade::notice('test:notice', ['params' => ['name' => 'zs'], 'result' => []]);
         LogFacade::info('test:info', ['params' => ['name' => 'zs'], 'result' => []]);
         LogFacade::debug('test:debug', ['params' => ['name' => 'zs'], 'result' => []]);
-        LogFacade::log('test:log', ['params' => ['name' => 'zs'], 'result' => []]);
     }
 }
