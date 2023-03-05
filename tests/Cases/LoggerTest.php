@@ -14,7 +14,7 @@ class LoggerTest extends TestCase
         define('REQUEST_ID', 'PHP_' . uniqid(gethostname() . '_'));//用于追踪请求链路
 
         $config = [
-            'file' => __DIR__ . '/../logs/shershon.log'
+            'file' => __DIR__ . '/../../logs/shershon.log'
         ];
         $logger = new Logger();
         $logger->setConfig($config);
