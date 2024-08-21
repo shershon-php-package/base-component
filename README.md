@@ -1,9 +1,11 @@
-## base-component
-常用的基础包
+## 1.base-component
 
-## 安装
+常用的基础组件：
+- 基于psr、Monolog封装的日志包
 
-* 配置composer.json
+## 2.安装
+
+- 配置composer.json
 ```json
 {
   "require-dev": {
@@ -21,16 +23,16 @@
 }
 ```
 
-* composer  require --ignore-platform-reqs shershon/base
-* rm -rf vendor/shershon/base/.git
+- composer require --ignore-platform-reqs shershon/base
+- rm -rf vendor/shershon/base/.git
 
-## 更新包版本
-* composer  require --ignore-platform-reqs shershon/base:1.0.0(替换成指定的版本)
-* rm -rf vendor/shershon/base/.git
+## 3.更新包版本
+- composer  require --ignore-platform-reqs shershon/base:1.0.0(替换成指定的版本)
+- rm -rf vendor/shershon/base/.git
 
-## 使用
+## 4.使用
 
-### 1. 基本用法
+### 4.1 基本用法
 
 * 前期准备,设置常量。在框架入口或脚本入口添加请求id和开始时间
    ```
@@ -49,11 +51,11 @@
     LogFacade::setInstance($logger);
     //日志不区分模块
     LogFacade::info('test', ['title' => 'this is test'])
-    //日志区分模块,便与搜索
+    //日志区分模块,便于搜索
     LogFacade::info('module:message', ['title' => 'this is test'])
 ```
 
-### 2. lumen/laravel 框架接入
+### 4.2 lumen/laravel 框架接入
 
 * 在public/index.php和artisan文件中增加常量
 ```
@@ -101,7 +103,7 @@ class AppServiceProvider extends ServiceProvider
     LogFacade::info('module:message', ['title' => 'this is test'])
  ```
 
-### 3. thinkphp6.0 框架接入(有service概念)
+### 4.3 thinkphp6.0 框架接入(有service概念)
 
 * 在public/index.php(每个不同的应用入口)和think文件中增加常量
 ```
