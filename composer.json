@@ -1,6 +1,6 @@
 {
   "name": "shershon/base",
-  "description": "常用的基础组件",
+  "description": "常用的、基于 psr 的基础组件",
   "keywords": [
     "base component",
     "psr"

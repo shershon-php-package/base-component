@@ -1,7 +1,7 @@
 ## 1.base-component
 
 常用的基础组件：
-- 基于psr、Monolog封装的日志包
+- 基于 psr、Monolog包 封装的日志包
 
 ## 2.安装
 
