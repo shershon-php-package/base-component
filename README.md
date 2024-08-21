@@ -1,4 +1,4 @@
-## 1.base-component
+## 1.常用的基础组件
 
 常用的基础组件：
 - 基于 psr、Monolog包 封装的日志包
@@ -9,7 +9,7 @@
 ```json
 {
   "require-dev": {
-    "shershon-php-package/base-component": "^1.0.0"
+    "shershon/base": "^1.0.0"
   },
   "config": {
     "secure-http": false
@@ -27,7 +27,7 @@
 - rm -rf vendor/shershon/base/.git
 
 ## 3.更新包版本
-- composer  require --ignore-platform-reqs shershon/base:1.0.0(替换成指定的版本)
+- composer require --ignore-platform-reqs shershon/base:1.0.0(替换成指定的版本)
 - rm -rf vendor/shershon/base/.git
 
 ## 4.使用
